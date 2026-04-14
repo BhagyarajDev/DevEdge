@@ -7,7 +7,7 @@ import BookEvent from "@/Component/BookEvent";
 import EventCard from "@/Component/Eventcard";
 import {cacheLife} from "next/cache";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
 
 const EventDetailItem = ({ icon, alt, label }: { icon: string; alt: string; label: string; }) => (
     <div className="flex-row-gap-2 items-center">
@@ -42,7 +42,7 @@ const EventDetails = async ({ params }: { params: Promise<string> }) => {
 
     let event;
     try {
-        const request = await fetch(`${BASE_URL}/api/events/${slug}`, {
+        const request = await fetch(`http://localhost:3000/api/events/${slug}`, {
             next: { revalidate: 60 }
         });
 
