@@ -42,7 +42,7 @@ const EventDetails = async ({ params }: { params: Promise<string> }) => {
 
     let event;
     try {
-        const request = await fetch(`${process.env.Next_PUBLIC_BASE_URL}/api/events/${slug}`, {
+        const request = await fetch(`http://localhost:3000/api/events/${slug}`, {
             next: { revalidate: 60 }
         });
 
